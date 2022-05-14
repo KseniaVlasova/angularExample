@@ -1,0 +1,9 @@
+<div class = "start-Dialog-Window" >
+    <div *ngIf="!flagStart"> 
+        <h1>Привет, готов создавать свои дела? </h1> 
+        <button class="start-Button__start-Dialog-Window" (click)="loadTaskList()">
+            Начать работу
+        </button>
+    </div>
+    <app-task-list *ngIf="flagStart"></app-task-list>
+</div>

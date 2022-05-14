@@ -1,0 +1,12 @@
+<div class="create-task-form" >
+    <title class="title__create-task-form">Добавить дело</title>
+    <div class="input__create-task-form">
+        <label for="">Название задачи</label>
+        <input type="text" name = "inputTaskName" [(ngModel)]="n" title="Имя задачи">
+        <label for="">Описание задачи</label>
+        <input type="text" name = "inputTaskDesc" [(ngModel)]="d" title="Описание">
+        
+        
+    </div>
+    <button class="add-button__create-task-form" (click)="addTask()">Добавить</button>
+</div>

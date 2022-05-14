@@ -1,0 +1,21 @@
+<div class="task-Form" >
+    <h1 class ="title__task-Form" >Мои дела</h1>
+    <button class = "addTask__task-Form" (click)="loadCreateTask()"> + </button>
+
+    <app-create-task 
+        *ngIf="flagCreate" 
+        (addedTask)="onTaskAdded($event)"
+        (addedTaskInTaskList)="onAddedTaskInTaskList($event)"
+        >
+    </app-create-task>
+    
+    <app-my-task
+        *ngFor="let iterTask of Task; let idx = index"  
+        [taskAll]="iterTask"
+        [index]="idx"
+        (onDelete)="onTaskDeleted($event)"
+        (onChange)="onChangedData($event)"
+        >
+        
+    </app-my-task>
+</div>

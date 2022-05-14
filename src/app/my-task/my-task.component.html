@@ -1,0 +1,24 @@
+<div class = "my-task-form" 
+    [ngClass]="{
+    done: taskAll.taskStatus === 'done',
+    undone: taskAll.taskStatus === 'undone',
+    canceled: taskAll.taskStatus === 'canceled'
+    }">
+    <div class="name-data__my-task-form">
+        <Label class = "label__all-data__my-task-form">Название: </Label>
+        <Label class = "desc__all-data__my-task-form" *ngIf="!flagChange">{{taskAll.name}}</Label>
+        <input type="text" class="input__all-data__my-task-form" [(ngModel)]="taskAll.name" *ngIf="flagChange" value="{{taskAll.name}}">
+    </div>
+    <div class="desc-data__my-task-form">
+        <Label class = "label__all-data__my-task-form">Описание: </Label>
+        <Label class = "desc__all-data__my-task-form" *ngIf="!flagChange">{{taskAll.desc}}</Label>
+        <input type="text" class="input__all-data__my-task-form" [(ngModel)]="taskAll.desc" *ngIf="flagChange" value="{{taskAll.desc}}">
+    </div>
+    <div class="all-button__my-task-form">
+        <button class="button__all-button__my-task-form" (click)="doneSuccessfully()" *ngIf="taskAll.taskStatus== 'undone'">Сделал</button>
+        <button class="button__all-button__my-task-form" (click)="dontMakeThisTask()" *ngIf="taskAll.taskStatus== 'undone'">Не буду делать</button>
+        <button class="button__all-button__my-task-form" (click)="changeTask()" *ngIf="taskAll.taskStatus== 'undone'">{{buttonChange}}</button>
+        <button class="button__all-button__my-task-form" (click)="deleteTask()">Удалить</button>
+    </div>
+
+</div>
