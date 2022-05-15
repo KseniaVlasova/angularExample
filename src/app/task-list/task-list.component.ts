@@ -14,9 +14,9 @@ import { DataService } from '../data.service';
 })
 export class TaskListComponent implements OnInit {
   flagCreate:boolean = false;
-  Task:TasksData[] = [{name:"Сделать дело", desc:"Гулять смело", taskStatus:MyTaskState.undone}];
+  task:TasksData[] = [{name:"Сделать дело", desc:"Гулять смело", taskStatus:MyTaskState.undone}];
   constructor(private dataService: DataService) {
-    this.Task = this.dataService.getData();
+    this.task = this.dataService.getData();
    }
 
   ngOnInit(): void {
@@ -27,25 +27,25 @@ export class TaskListComponent implements OnInit {
   }
   onCreateTask(event:TasksData)
   {
-    this.Task.push(event);
-    this.dataService.addData(this.Task);
+    this.task.push(event);
+    this.dataService.addData(this.task);
   }
 
   onTaskDeleted(i:number)
   {
-    this.Task.splice(i,1);
-    this.dataService.addData(this.Task);
+    this.task.splice(i,1);
+    this.dataService.addData(this.task);
   }
 
   onAddedTaskInTaskList(t:TasksData){
-    this.Task.push(t);
-    this.dataService.addData(this.Task);
+    this.task.push(t);
+    this.dataService.addData(this.task);
   }
 
   onChangedData(c:ChangeData){
-    this.Task[c.index].name = c.name;
-    this.Task[c.index].desc = c.desc;
-    this.dataService.addData(this.Task);
+    this.task[c.index].name = c.name;
+    this.task[c.index].desc = c.desc;
+    this.dataService.addData(this.task);
   }
 
   loadCreateTask(){

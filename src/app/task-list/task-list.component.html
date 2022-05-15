@@ -10,7 +10,7 @@
     </app-create-task>
     
     <app-my-task
-        *ngFor="let iterTask of Task; let idx = index"  
+        *ngFor="let iterTask of task; let idx = index"  
         [taskAll]="iterTask"
         [index]="idx"
         (onDelete)="onTaskDeleted($event)"
